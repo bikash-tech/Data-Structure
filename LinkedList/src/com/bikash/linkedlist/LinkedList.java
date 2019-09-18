@@ -27,11 +27,12 @@ public class LinkedList {
 			// initialize the temporary node to start node
 			node = start;
 			// print from first element to last element of the List
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size-1; i++) {
 				System.out.print(node.getData()+"->");
 				// get next node address
 				node = node.getNext();
 			}
+			System.out.print(node.getData());
 		}
 	}
 
@@ -78,9 +79,36 @@ public class LinkedList {
 			
 		}
 	}
-
+	/**
+	 * Insert the given value at given position
+	 * 
+	 * @param value
+	 * @param position
+	 */
 	public void insertAtPosition(int value, int position) {
-
+		// if position = 1, insert the value as first element
+		if (position == 1) {
+			insertAtFirst(value);
+			size++;
+		}
+		// if position is last, set value as last element
+		else if (position == size + 1) {
+			insertAtLast(value);
+			size++;
+		} else if (position > 1 && position <= size) {
+			Node node = new Node(value, null);
+			Node temp = start;
+			// print from first element to last element of the List
+			for (int i = 0; i < position - 1; i++) {
+				// get next node address
+				temp = temp.getNext();
+			}
+			node.setNext(temp.getNext());
+			temp.setNext(node);
+			size++;
+		}else {
+			System.out.println("Invalid Position ... try again");
+		}
 	}
 
 	public void deleteAtFirst() {
