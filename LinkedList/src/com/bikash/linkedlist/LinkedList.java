@@ -29,7 +29,7 @@ public class LinkedList {
 			// initialize the temporary node to start node
 			node = start;
 			// print from first element to last element of the List
-			for (int i = 0; i < size - 1; i++) {
+			for (int i = 0; i < getListSize() - 1; i++) {
 				System.out.print(node.getData() + "->");
 				// get next node address
 				node = node.getNext();

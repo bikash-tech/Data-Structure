@@ -24,25 +24,37 @@ public class DoublyLinkedListTest {
 			choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-//				System.out.println("Total SIze of List ::"+list.getListSize());
-//				break;
+				System.out.println("Total SIze of List ::"+list.getSize());
+				break;
 			case 2:
-//				System.out.println("Enter data :");
-//				value = sc.nextInt();
-//				list.insertAtFirst(value);
-//				break;
+				System.out.println("Enter data :");
+				value = sc.nextInt();
+				list.insertAtFirst(value);
+				break;
 			case 3:
-//				System.out.println("Enter data :");
-//				value = sc.nextInt();
-//				list.insertAtLast(value);
-//				break;
+				System.out.println("Enter data :");
+				value = sc.nextInt();
+				list.insertAtLast(value);
+				break;
 			case 4:
+				System.out.println("Enter the position");
+				position = sc.nextInt();
+				System.out.println("Enter data :");
+				value = sc.nextInt();
+				list.insertAtPosition(value, position);
 			case 5:
+				list.deleteFirstNode();
+				break;
 			case 6:
+				list.deleteLastNode();
+				break;
 			case 7:
+				System.out.println("Enter the position");
+				position = sc.nextInt();
+				list.deleteAtPosition(position);
 			case 8:
-//				list.viewList();
-//				break;
+				list.display();
+				break;
 			case 9:
 				flag = false;
 				break;
