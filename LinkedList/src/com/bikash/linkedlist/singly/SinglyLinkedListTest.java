@@ -1,4 +1,4 @@
-package com.bikash.linkedlist;
+package com.bikash.linkedlist.singly;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.bikash.doubly.linkedlist;
+package com.bikash.linkedlist.doubly;
 
 /**
  * Custom Doubly LinkedList with all possible operations
@@ -166,40 +166,73 @@ public class DoublyLinkedList {
 			System.out.println("Empty List");
 			return;
 		}
+
 		for (int i = 0; i < getSize() - 1; i++) {
-			System.out.print(node.getData() + "<->");
-			node = node.getNextNode();
+			if (node != null) {
+				System.out.print(node.getData() + "<->");
+				node = node.getNextNode();
+			}
 		}
-		System.out.print(node.getData());
+		if (node != null)
+			System.out.print(node.getData());
 
 	}
 
-//	public static void main(String[] args) {
-//		DoublyLinkedList dll = new DoublyLinkedList();
-//		dll.insertAtFirst(10);
-//		dll.insertAtFirst(5);
-//		dll.insertAtFirst(15);
-//		dll.insertAtFirst(01);
-//		dll.display();
-//		System.out.println("\nSize :" + dll.getSize());
-//		System.out.println("*****************************");
-//		dll.insertAtLast(34);
-//		dll.insertAtLast(45);
-//		dll.display();
-//		System.out.println("\nSize :" + dll.getSize());
-//		System.out.println("*****************************");
-//		dll.insertAtPosition(23, 1);
-//		dll.insertAtPosition(24, 4);
-//		dll.display();
-//		System.out.println("\nSize :" + dll.getSize());
-//		System.out.println("*****************************");
-//		// dll.deleteFirstNode();
-//		// dll.deleteLastNode();
-//		// dll.deleteAtPosition(2);
-//		dll.insertAtPosition(222, 7);
-//		dll.display();
-//		System.out.println("\nSize :" + dll.getSize());
-//		System.out.println("*****************************");
-//	}
+	/**
+	 * https://www.youtube.com/watch?v=_6JI9XdO8nM
+	 * 
+	 * 1.reverse each node previous and next address among themselves 2.repeat the
+	 * process until last node 3.change the head and tail pointer (Swapping
+	 * mechanism using 3rd variable)
+	 */
+	public void reverseList() {
+		DNode current = head;
+		DNode nextNode = null;
+		if (isEmpty()) {
+			System.out.println("List is Empty");
+		}
+		while (current != null) {
+			nextNode = current.getNextNode();
+			current.setNextNode(current.getPrevNode());
+			current.setPrevNode(nextNode);
+			current = nextNode;
+		}
+		// swap between head and tail
+		current = head;
+		head = tail;
+		tail = current;
+		display();
+	}
+
+	public static void main(String[] args) {
+		DoublyLinkedList dll = new DoublyLinkedList();
+		dll.insertAtFirst(10);
+		dll.insertAtFirst(5);
+		dll.insertAtFirst(15);
+		dll.insertAtFirst(01);
+		dll.display();
+		System.out.println("\nSize :" + dll.getSize());
+		System.out.println("*****************************");
+		dll.insertAtLast(34);
+		dll.insertAtLast(45);
+		dll.display();
+		System.out.println("\nSize :" + dll.getSize());
+		System.out.println("*****************************");
+		dll.insertAtPosition(23, 1);
+		dll.insertAtPosition(24, 4);
+		dll.display();
+		System.out.println("\nSize :" + dll.getSize());
+		System.out.println("*****************************");
+		// dll.deleteFirstNode();
+		// dll.deleteLastNode();
+		// dll.deleteAtPosition(2);
+		dll.insertAtPosition(222, 2);
+		dll.display();
+		System.out.println("\nSize :" + dll.getSize());
+		System.out.println("*****************************");
+		dll.reverseList();
+		System.out.println("\nSize :" + dll.getSize());
+		System.out.println("*****************************");
+	}
 
 }

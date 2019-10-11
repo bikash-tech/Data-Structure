@@ -1,4 +1,4 @@
-package com.bikash.doubly.linkedlist;
+package com.bikash.linkedlist.doubly;
 
 public class DNode {
 	private DNode prevNode, nextNode;

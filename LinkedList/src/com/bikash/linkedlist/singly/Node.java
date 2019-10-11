@@ -1,4 +1,4 @@
-package com.bikash.linkedlist;
+package com.bikash.linkedlist.singly;
 
 public class Node {
 	int data;

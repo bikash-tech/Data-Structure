@@ -1,4 +1,4 @@
-package com.bikash.linkedlist;
+package com.bikash.linkedlist.singly;
 
 /**
  * Custom LinkedList with all possible operations

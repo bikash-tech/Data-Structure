@@ -1,4 +1,4 @@
-package com.bikash.doubly.linkedlist;
+package com.bikash.linkedlist.doubly;
 
 import java.util.Scanner;
 
@@ -19,7 +19,8 @@ public class DoublyLinkedListTest {
 			System.out.println("6. Delete data at last from List");
 			System.out.println("7. Delete data at specified position from List");
 			System.out.println("8. Display List");
-			System.out.println("9. Exit");
+			System.out.println("9. Reverse List");
+			System.out.println("10. Exit");
 			System.out.println("Enter your choice ::");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -42,6 +43,7 @@ public class DoublyLinkedListTest {
 				System.out.println("Enter data :");
 				value = sc.nextInt();
 				list.insertAtPosition(value, position);
+				break;
 			case 5:
 				list.deleteFirstNode();
 				break;
@@ -52,10 +54,14 @@ public class DoublyLinkedListTest {
 				System.out.println("Enter the position");
 				position = sc.nextInt();
 				list.deleteAtPosition(position);
+				break;
 			case 8:
 				list.display();
 				break;
 			case 9:
+				list.reverseList();
+				break;
+			case 10:
 				flag = false;
 				break;
 			}
