@@ -101,10 +101,10 @@ public class LinkedList {
 			size++;
 		}
 		// if position is last, set value as last element
-		else if (position == size + 1) {
+		else if (position == size) {
 			insertAtLast(value);
 			size++;
-		} else if (position > 1 && position <= size) {
+		} else if (position > 1 && position < size) {
 			Node node = new Node(value, null);
 			Node temp = start;
 			// print from first element to last element of the List
