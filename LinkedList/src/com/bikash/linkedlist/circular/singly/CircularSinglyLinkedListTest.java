@@ -2,8 +2,6 @@ package com.bikash.linkedlist.circular.singly;
 
 import java.util.Scanner;
 
-import com.bikash.linkedlist.doubly.DoublyLinkedList;
-
 public class CircularSinglyLinkedListTest {
 
 	public static void main(String[] args) {
