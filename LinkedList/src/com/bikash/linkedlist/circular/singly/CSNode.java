@@ -1,8 +1,19 @@
 package com.bikash.linkedlist.circular.singly;
 
 public class CSNode {
-	private CSNode nextNode, prevNode;
+	private CSNode nextNode;
 	private int data;
+
+	public CSNode(CSNode nextNode, int data) {
+		super();
+		this.nextNode = nextNode;
+		this.data = data;
+	}
+
+	public CSNode(int data) {
+		super();
+		this.data = data;
+	}
 
 	public CSNode getNextNode() {
 		return nextNode;
@@ -10,14 +21,6 @@ public class CSNode {
 
 	public void setNextNode(CSNode nextNode) {
 		this.nextNode = nextNode;
-	}
-
-	public CSNode getPrevNode() {
-		return prevNode;
-	}
-
-	public void setPrevNode(CSNode prevNode) {
-		this.prevNode = prevNode;
 	}
 
 	public int getData() {
