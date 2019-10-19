@@ -8,7 +8,7 @@ package com.bikash.linkedlist.circular.singly;
  *
  */
 public class CircularLinkedSinlglyList {
-	CSNode tail;
+	CDNode tail;
 	int size = 0;
 
 	/**
@@ -18,7 +18,7 @@ public class CircularLinkedSinlglyList {
 	 * @param value
 	 */
 	public void insertAtFirst(int value) {
-		CSNode node = new CSNode(value);
+		CDNode node = new CDNode(value);
 		if (tail == null) {
 			tail = node;
 			// tail.setNextNode(node);
@@ -37,7 +37,7 @@ public class CircularLinkedSinlglyList {
 	 * @param value
 	 */
 	public void insertAtLast(int value) {
-		CSNode node = new CSNode(value);
+		CDNode node = new CDNode(value);
 		if (tail == null) {
 			tail = node;
 			tail.setNextNode(node);
@@ -60,9 +60,9 @@ public class CircularLinkedSinlglyList {
 		if (tail == null) {
 			System.out.println("Empty List");
 		} else {
-			CSNode temp = tail.getNextNode();
+			CDNode temp = tail.getNextNode();
 			if (temp != null) {
-				CSNode node = temp;
+				CDNode node = temp;
 				while (node.getNextNode() != temp) {
 					System.out.print(node.getData() + "->");
 					node = node.getNextNode();
@@ -99,8 +99,8 @@ public class CircularLinkedSinlglyList {
 		} else if (position == getSize()) {
 			insertAtLast(value);
 		} else {
-			CSNode node = new CSNode(value);
-			CSNode temp = tail.getNextNode();
+			CDNode node = new CDNode(value);
+			CDNode temp = tail.getNextNode();
 			int i = 1;
 			while (i < position - 1) {
 				temp = temp.getNextNode();
@@ -120,7 +120,7 @@ public class CircularLinkedSinlglyList {
 		if (tail == null) {
 			System.out.println("Empty List");
 		} else {
-			CSNode head = tail.getNextNode();
+			CDNode head = tail.getNextNode();
 			tail.setNextNode(head.getNextNode());
 			head.setNextNode(null);
 			size--;
@@ -134,8 +134,8 @@ public class CircularLinkedSinlglyList {
 		if (tail == null) {
 			System.out.println("Empty List");
 		} else {
-			CSNode head = tail.getNextNode();
-			CSNode temp = head;
+			CDNode head = tail.getNextNode();
+			CDNode temp = head;
 			while (temp.getNextNode() != tail) {
 				temp = temp.getNextNode();
 			}
@@ -160,8 +160,8 @@ public class CircularLinkedSinlglyList {
 		} else if (position == getSize()) {
 			deleteLastNode();
 		} else {
-			CSNode head = tail.getNextNode();
-			CSNode temp = head;
+			CDNode head = tail.getNextNode();
+			CDNode temp = head;
 			int i = 1;
 			while (i < position - 1) {
 				temp = temp.getNextNode();
@@ -177,8 +177,8 @@ public class CircularLinkedSinlglyList {
 	 * 1. Take 3 pointer to achieve this. i.e previous,current and next
 	 */
 	public void reverseList() {
-		CSNode current = tail.getNextNode();
-		CSNode previous = null;
+		CDNode current = tail.getNextNode();
+		CDNode previous = null;
 		if (tail == null) {
 			System.out.println("Empty List");
 			return;
@@ -188,7 +188,7 @@ public class CircularLinkedSinlglyList {
 			display();
 			return;
 		}
-		CSNode next = current.getNextNode();
+		CDNode next = current.getNextNode();
 		// till last node
 		while (current != tail) {
 			previous = current;
