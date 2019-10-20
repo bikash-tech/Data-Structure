@@ -10,7 +10,7 @@ public class StackTest {
 		boolean flag = true;
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Ënter Stack Size ::");
+		System.out.println("Enter Stack Size ::");
 		size = sc.nextInt();
 		stack = new Stack(size);
 		while (flag) {
