@@ -1,4 +1,4 @@
-package com.stack;
+package com.stack.arrays;
 
 public class Stack {
 	private int[] stack = null;

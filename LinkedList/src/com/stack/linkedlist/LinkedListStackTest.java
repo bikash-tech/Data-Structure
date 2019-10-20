@@ -1,28 +1,24 @@
-package com.stack;
+package com.stack.linkedlist;
 
 import java.util.Scanner;
 
-public class StackTest {
+public class LinkedListStackTest {
 
 	public static void main(String[] args) {
-		Stack stack = null;
-		int choice = 0, value = 0, size = 0;
+		LinkedListStack stack = new LinkedListStack();
+		int choice = 0, value = 0;
 		boolean flag = true;
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Stack Size ::");
-		size = sc.nextInt();
-		stack = new Stack(size);
 		while (flag) {
+			@SuppressWarnings("resource")
+			Scanner sc = new Scanner(System.in);
 			System.out.println();
 			System.out.println("1. Size");
 			System.out.println("2. Push");
 			System.out.println("3. Pop");
 			System.out.println("4. Peek");
-			System.out.println("5. isFull");
-			System.out.println("6. isEmpty");
-			System.out.println("7. Display List");
-			System.out.println("8. Exit");
+			System.out.println("5. isEmpty");
+			System.out.println("6. Display List");
+			System.out.println("7. Exit");
 			System.out.println("Enter your choice ::");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -41,15 +37,12 @@ public class StackTest {
 				System.out.println("Peek element is ::"+stack.peek());
 				break;
 			case 5:
-				System.out.println("isFull ::"+stack.isFull());
-				break;
-			case 6:
 				System.out.println("isEmpty ::"+stack.isEmpty());
 				break;
-			case 7:
+			case 6:
 				stack.display();
 				break;
-			case 8:
+			case 7:
 				flag = false;
 				break;
 			}
