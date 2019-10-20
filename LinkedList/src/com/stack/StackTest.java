@@ -6,7 +6,7 @@ public class StackTest {
 
 	public static void main(String[] args) {
 		Stack stack = null;
-		int choice = 0, value = 0, position, size = 0;
+		int choice = 0, value = 0, size = 0;
 		boolean flag = true;
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
