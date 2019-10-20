@@ -2,8 +2,6 @@ package com.stack;
 
 import java.util.Scanner;
 
-import com.bikash.linkedlist.doubly.DoublyLinkedList;
-
 public class StackTest {
 
 	public static void main(String[] args) {
