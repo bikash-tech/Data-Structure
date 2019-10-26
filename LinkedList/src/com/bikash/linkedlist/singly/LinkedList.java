@@ -98,17 +98,15 @@ public class LinkedList {
 		// if position = 1, insert the value as first element
 		if (position == 1) {
 			insertAtFirst(value);
-			size++;
 		}
 		// if position is last, set value as last element
 		else if (position == size) {
 			insertAtLast(value);
-			size++;
 		} else if (position > 1 && position < size) {
 			Node node = new Node(value, null);
 			Node temp = start;
 			// print from first element to last element of the List
-			for (int i = 0; i < position - 1; i++) {
+			for (int i = 1; i < position - 1; i++) {
 				// get next node address
 				temp = temp.getNext();
 			}
@@ -175,5 +173,30 @@ public class LinkedList {
 			tempNode1.setNext(tempNode1.getNext());
 			size--;
 		}
+	}
+
+	// Sort a linked list
+	public void sortList() {
+		if (start == null) {
+			System.out.println("Empty List...");;
+		} else {
+			Node head = start;
+			Node next = null;
+			while (head != null) {
+				next = head.getNext();
+				while (next != null) {
+					if (head.data > next.data) {
+						int temp = head.data;
+						head.data = next.data;
+						next.data = temp;
+					}
+					next = next.getNext();
+				}
+				head = head.getNext();
+			}
+			System.out.print("Sorted List ::");
+			viewList();
+		}
+
 	}
 }

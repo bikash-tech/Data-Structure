@@ -19,7 +19,8 @@ public class SinglyLinkedListTest {
 			System.out.println("6. Delete data at last from List");
 			System.out.println("7. Delete data at specified position from List");
 			System.out.println("8. Display List");
-			System.out.println("9. Exit");
+			System.out.println("9. Sort List");
+			System.out.println("10. Exit");
 			System.out.println("Enter your choice ::");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -37,13 +38,30 @@ public class SinglyLinkedListTest {
 				list.insertAtLast(value);
 				break;
 			case 4:
+				System.out.println("Enter the position");
+				position = sc.nextInt();
+				System.out.println("Enter data :");
+				value = sc.nextInt();
+				list.insertAtPosition(value, position);
+				break;
 			case 5:
+				list.deleteAtFirst();;
+				break;
 			case 6:
+				list.deleteAtLast();;
+				break;
 			case 7:
+				System.out.println("Enter the position");
+				position = sc.nextInt();
+				list.deleteAtPosition(position);
+				break;
 			case 8:
 				list.viewList();
 				break;
 			case 9:
+				list.sortList();
+				break;
+			case 10:
 				flag = false;
 				break;
 			}
