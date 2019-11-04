@@ -4,7 +4,7 @@ public class MergeSinglyLinkedList {
 	static Node head;
 
 	public static void main(String[] args) {
-		int[] data = { 2, 4 };
+		int[] data = { 2, 4, 6,8 };
 		Node list1 = new Node(null, data[0]);
 		for (int i = 1; i <= data.length - 1; i++) {
 			insert(list1, data[i]);
@@ -14,9 +14,9 @@ public class MergeSinglyLinkedList {
 		display(list1);
 		System.out.println();
 
-		int[] data2 = { 1, 3, 5, 9, 10, 10 };
+		int[] data2 = { 1, 3, 5, 9, 9, 10, 10 };
 		Node list2 = new Node(null, data2[0]);
-		for (int i = 1; i <= data.length - 1; i++) {
+		for (int i = 1; i <= data2.length - 1; i++) {
 			insert(list2, data2[i]);
 		}
 		// display node data
@@ -29,18 +29,16 @@ public class MergeSinglyLinkedList {
 
 		Node mergedList = mergeTwoList(list1, list2);
 
+//		display(null);
 		display(mergedList);
 	}
 
 	private static Node mergeTwoList(Node list1, Node list2) {
 		Node mergedList = null, newNode = null;
-		if (list1 == null && list2 == null) {
-			return null;
-		}
 		if (list1 == null) {
 			return list2;
 		}
-		if (list2 == null) {
+		else if (list2 == null) {
 			return list1;
 		}
 		// else {
@@ -83,7 +81,7 @@ public class MergeSinglyLinkedList {
 			newNode.setNext(list1);
 		}
 
-		// return newNode;
+//		 return newNode;
 		return mergedList;
 	}
 
