@@ -1,0 +1,22 @@
+											QUEUE
+											-----
+1. It is the LILO(Last In Last Out) or LIFO(Last In First Out) approach.
+2. front and rear is used for deQueue and enQueue operation of a Queue.
+3. enQueue is used for inserting data into Queue and deQueue is used for deleting one element from Queue.
+4. front will not moved while inserting elements.
+4. rear will not moved while deleting elements.
+
+Drawback
+---------
+1. In some point of time both rear and front will point to same index of Queue. 
+	Ex: in a queue 4th index data is available and remaining places are free but toast message will show like "Queue is full". but there is some places are there to insert the elements.
+2. To avoid that circular queue came into subject.
+
+Applications
+------------
+1. Single resource can be sharable with multiple systems.
+ex: Printer connecting to different systems in a office.
+2. Call center customer.
+	
+	
+										

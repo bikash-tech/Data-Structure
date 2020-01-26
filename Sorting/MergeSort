@@ -1,0 +1,6 @@
+Merge Sort
+----------
+1. divide and  concurs way it will divide the array.
+2. nlogn is the time complexity.
+3. log base 2 ways it will divide the array.(if array size is 8 then log base 8. Similarly log base n is nlogn)
+4.  
