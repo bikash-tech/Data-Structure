@@ -1,41 +1,54 @@
 package com.sort;
 
 public class Test {
+	static int[] newArr;
+
+	public Test(int length) {
+		newArr = new int[length];
+	}
+
 	public static void main(String[] args) {
-		int[] arr = { 23, 56, 56, 81, 4, 84, 45, 456, 43, 15, 86, 49 };
-		quickSort(arr, 0, arr.length - 1);
+		int[] arr = { 1, 2, 6, 20, 9, 3, 4, 75, 343, 23 };
+		new Test(arr.length);
+		mergeSort(arr, 0, arr.length - 1);
 		for (int i : arr) {
 			System.out.print(i + " ");
 		}
 	}
 
-	private static void quickSort(int[] arr, int i, int j) {
-		if (i < j) {
-			int pivot = partionArray(arr, i, j);
-			quickSort(arr, i, pivot - 1);
-			quickSort(arr, pivot + 1, j);
+	private static void mergeSort(int[] arr, int low, int high) {
+		if (low < high) {
+			int mid = (low + high) / 2;
+			mergeSort(arr, low, mid);
+			mergeSort(arr, mid + 1, high);
+			merge(arr, low, mid, high);
 		}
-
 	}
 
-	private static int partionArray(int[] arr, int i, int j) {
-		int low = i, high = j, pivot = arr[i];
-		while (low < high) {
-			while (low <= j && arr[low] <= pivot)
-				low++;
-			while (high >= i && arr[high] > pivot)
-				high--;
-			if (low < high)
-				swap(arr, low, high);
+	private static void merge(int[] arr, int low, int mid, int high) {
+		int firstIndex = low;
+		int secondIndex = mid + 1;
+		int newArrIndex = low;
+		while (firstIndex <= mid && secondIndex <= high) {
+			if (arr[firstIndex] < arr[secondIndex]) {
+				newArr[newArrIndex++] = arr[firstIndex++];
+			} else {
+				newArr[newArrIndex++] = arr[secondIndex++];
+			}
 		}
-		swap(arr, i, high);
-		return high;
-	}
+		if (firstIndex > mid) {
+			while (secondIndex <= high) {
+				newArr[newArrIndex++] = arr[secondIndex++];
+			}
+		} else {
+			while (firstIndex <= mid) {
+				newArr[newArrIndex++] = arr[firstIndex++];
+			}
+		}
 
-	private static void swap(int[] arr, int low, int high) {
-		int temp = arr[low];
-		arr[low] = arr[high];
-		arr[high] = temp;
+		for (newArrIndex = low; newArrIndex <= high; newArrIndex++) {
+			arr[newArrIndex] = newArr[newArrIndex];
+		}
 	}
 
 }
