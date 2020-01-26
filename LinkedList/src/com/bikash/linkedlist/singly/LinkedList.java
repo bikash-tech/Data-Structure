@@ -68,7 +68,7 @@ public class LinkedList {
 		size++;
 	}
 
-	public void insertAtLast(int value) {
+	public void insertAtLast(int value) { 
 		Node node = null;
 		if (isEmpty()) {
 			System.out.println("List is Empty.");
