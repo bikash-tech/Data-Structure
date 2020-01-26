@@ -32,36 +32,36 @@ public class BubbleSort {
 //			}
 //		}
 //	}
-	private static void bubbleSort(int[] arr, int length) {
-		// for outer loop : each pass
-		for (int i = 0; i < length - 1; i++) {
-			// for each element to be compared
-			if (arr[i] > arr[i + 1]) {
-				arr[i]= arr[i] ^ arr[i + 1];
-				arr[i+1]= arr[i] ^ arr[i + 1];
-				arr[i]= arr[i] ^ arr[i + 1];
-				i = 0;
-//				arr[i]= arr[i]*arr[i + 1];
-//				arr[i+1]= arr[i]/arr[i + 1];
-//				arr[i]= arr[i]/arr[i + 1];
-			}
-		}
-	}
 //	private static void bubbleSort(int[] arr, int length) {
-//		boolean flag = true;
 //		// for outer loop : each pass
-//		for (int i = 0; i < length - 1 && flag; i++) {
-//			flag = false;
+//		for (int i = 0; i < length - 1; i++) {
 //			// for each element to be compared
-//			for (int j = 0; j < length - 1 - i; j++) {
-//				// compare adjacent elements with each other
-//				if (arr[j] > arr[j + 1]) {
-//					int temp = arr[j];
-//					arr[j] = arr[j + 1];
-//					arr[j + 1] = temp;
-//					flag = true;
-//				}
+//			if (arr[i] > arr[i + 1]) {
+//				arr[i]= arr[i] ^ arr[i + 1];
+//				arr[i+1]= arr[i] ^ arr[i + 1];
+//				arr[i]= arr[i] ^ arr[i + 1];
+//				i = 0;
+////				arr[i]= arr[i]*arr[i + 1];
+////				arr[i+1]= arr[i]/arr[i + 1];
+////				arr[i]= arr[i]/arr[i + 1];
 //			}
 //		}
 //	}
+	private static void bubbleSort(int[] arr, int length) {
+		boolean flag = true;
+		// for outer loop : each pass
+		for (int i = 0; i < length - 1 && flag; i++) {
+			flag = false;
+			// for each element to be compared
+			for (int j = 0; j < length - 1 - i; j++) {
+				// compare adjacent elements with each other
+				if (arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+					flag = true;
+				}
+			}
+		}
+	}
 }
