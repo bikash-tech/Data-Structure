@@ -11,16 +11,17 @@ public class SinglyLinkedListTest {
 			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			System.out.println();
-			System.out.println("1. Get List Size");
-			System.out.println("2. Add data at first to List");
-			System.out.println("3. Add data at last to List");
-			System.out.println("4. Add data at specified position to List");
-			System.out.println("5. Delete data at first from List");
-			System.out.println("6. Delete data at last from List");
-			System.out.println("7. Delete data at specified position from List");
-			System.out.println("8. Display List");
-			System.out.println("9. Sort List");
-			System.out.println("10. Exit");
+			System.out.println("01. Get List Size");
+			System.out.println("02. Add data at first to List");
+			System.out.println("03. Add data at last to List");
+			System.out.println("04. Add data at specified position to List");
+			System.out.println("05. Delete data at first from List");
+			System.out.println("06. Delete data at last from List");
+			System.out.println("07. Delete data at specified position from List");
+			System.out.println("08. Display List");
+			System.out.println("09. Sort List");
+			System.out.println("10. Reverse Linked List");
+			System.out.println("11. Exit");
 			System.out.println("Enter your choice ::");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -62,6 +63,9 @@ public class SinglyLinkedListTest {
 				list.sortList();
 				break;
 			case 10:
+				list.reverseSinglyLinkedList();
+				break;
+			case 11:
 				flag = false;
 				break;
 			}

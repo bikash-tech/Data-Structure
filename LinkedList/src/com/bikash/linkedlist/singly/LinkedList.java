@@ -29,9 +29,13 @@ public class LinkedList {
 			// initialize the temporary node to start node
 			node = start;
 			// print from first element to last element of the List
-			for (int i = 0; i < getListSize() - 1; i++) {
+//			for (int i = 0; i < getListSize() - 1; i++) {
+//				System.out.print(node.getData() + "->");
+//				// get next node address
+//				node = node.getNext();
+//			}
+			while(node.getNext() != null) {
 				System.out.print(node.getData() + "->");
-				// get next node address
 				node = node.getNext();
 			}
 			System.out.print(node.getData());
@@ -44,10 +48,11 @@ public class LinkedList {
 	 * @return boolean
 	 */
 	public boolean isEmpty() {
-		if (start == null)
-			return true;
-		else
-			return false;
+//		if (start == null)
+//			return true;
+//		else
+//			return false;
+		return start == null;
 	}
 
 	/**
@@ -60,10 +65,10 @@ public class LinkedList {
 	}
 
 	public void insertAtFirst(int value) {
-		Node node = new Node();
-		node.setData(value);
-		// set current start address and it will works for empty and non-empty list
-		node.setNext(start);
+		Node node = new Node(value,start);
+//		node.setData(value);
+//		// set current start address and it will works for empty and non-empty list
+//		node.setNext(start);
 		start = node;
 		size++;
 	}
@@ -73,14 +78,15 @@ public class LinkedList {
 		if (isEmpty()) {
 			System.out.println("List is Empty.");
 		} else {
-			node = new Node();
-			node.setData(value);
-			node.setNext(null);
+			node = new Node(value,null);
 			// initialize the temporary node to start node
 			Node tempNode = start;
 			// print from first element to last element of the List
-			for (int i = 0; i < size; i++) {
-				// get next node address
+//			for (int i = 0; i < size; i++) {
+//				// get next node address
+//				tempNode = tempNode.getNext();
+//			}
+			while(tempNode.getNext() != null) {
 				tempNode = tempNode.getNext();
 			}
 			tempNode.setNext(node);
@@ -138,11 +144,15 @@ public class LinkedList {
 			System.out.println("List is Empty...");
 		} else {
 			Node tempNode = start;
-			// traverse until (last - 1)th node.
-			while (tempNode.getNext() != null) {
-				tempNode = tempNode.getNext();
+			if(size == 1) {
+				start = null;
+			}else {
+				// traverse until (last - 1)th node.
+				while (tempNode.getNext() != null && tempNode.getNext().getNext() != null) {
+					tempNode = tempNode.getNext();
+				}
+				tempNode.setNext(null);
 			}
-			tempNode.setNext(null);
 			size--;
 		}
 	}
@@ -162,15 +172,12 @@ public class LinkedList {
 		} else if (position == size) {
 			deleteAtLast();
 		} else {
-			Node tempNode1, tempNode2;
-			tempNode1 = start;
-			for (int i = 0; i < position - 1; i++) {
-				tempNode1 = tempNode1.getNext();
+			Node tempNode = start;
+			for (int i = 1; i < position - 1; i++) {
+				tempNode = tempNode.getNext();
 			}
 			// assign next node of specified node
-//			tempNode2 = tempNode1.getNext();
-//			tempNode1.setNext(tempNode2);
-			tempNode1.setNext(tempNode1.getNext());
+			tempNode.setNext(tempNode.getNext().getNext());
 			size--;
 		}
 	}
@@ -185,10 +192,10 @@ public class LinkedList {
 			while (head != null) {
 				next = head.getNext();
 				while (next != null) {
-					if (head.data > next.data) {
-						int temp = head.data;
-						head.data = next.data;
-						next.data = temp;
+					if (head.getData() > next.getData()) {
+						int temp = head.getData();
+						head.setData(next.getData()) ;
+						next.setData(temp);
 					}
 					next = next.getNext();
 				}
@@ -198,5 +205,23 @@ public class LinkedList {
 			viewList();
 		}
 
+	}
+
+	public void reverseSinglyLinkedList() {
+		Node current = start;
+		Node next = start;
+		Node previous = null;
+		if(start == null) {
+			System.out.println("List is Empty.");
+		}
+		while(next != null) {
+			next = next.getNext();
+			current.setNext(previous);
+			previous = current;
+			current = next;
+		}
+		start = previous;
+		System.out.println("Reversed Linked List ::");
+		viewList();
 	}
 }

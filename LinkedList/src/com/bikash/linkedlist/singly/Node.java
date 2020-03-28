@@ -1,8 +1,8 @@
 package com.bikash.linkedlist.singly;
 
 public class Node {
-	int data;
-	Node next;
+	private int data;
+	private Node next;
 
 	public Node() {
 		this.data = 0;
@@ -13,10 +13,8 @@ public class Node {
 		super();
 		this.data = data;
 		this.next = next;
-		this.data = data;
-		this.next = next;
-	}
 
+	}
 	public int getData() {
 		return data;
 	}
