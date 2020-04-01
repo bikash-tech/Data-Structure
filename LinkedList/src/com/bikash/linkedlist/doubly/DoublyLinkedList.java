@@ -42,8 +42,7 @@ public class DoublyLinkedList {
 	 * @param data
 	 */
 	public void insertAtFirst(int data) {
-		DNode node = null;
-		node = new DNode(data);
+		DNode node = new DNode(data);
 		// If head node is empty
 		if (head == null) {
 			head = node;
@@ -114,8 +113,12 @@ public class DoublyLinkedList {
 		if (isEmpty()) {
 			System.out.println("List is Empty");
 		} else {
-			head = head.getNextNode();
-			head.setPrevNode(null);
+			if (getSize() == 1) {
+				head = tail = null;
+			} else {
+				head = head.getNextNode();
+				head.setPrevNode(null);
+			}
 			size--;
 		}
 	}
@@ -128,8 +131,12 @@ public class DoublyLinkedList {
 			System.out.println("List is Empty");
 			return;
 		} else {
-			tail = tail.getPrevNode();
-			tail.setNextNode(null);
+			if (getSize() == 1) {
+				tail = head = null;
+			} else {
+				tail = tail.getPrevNode();
+				tail.setNextNode(null);
+			}
 			size--;
 		}
 	}
@@ -233,6 +240,29 @@ public class DoublyLinkedList {
 		dll.reverseList();
 		System.out.println("\nSize :" + dll.getSize());
 		System.out.println("*****************************");
+	}
+
+	public void sort() {
+		if (head == null) {
+			System.out.println("List is Empty...");
+		} else {
+			DNode start = head;
+			DNode next = null;
+			while (start != null) {
+				next = start.getNextNode();
+				while (next != null) {
+					if (start.getData() > next.getData()) {
+						int temp = start.getData();
+						start.setData(next.getData());
+						next.setData(temp);
+					}
+					next = next.getNextNode();
+				}
+				start = start.getNextNode();
+			}
+			System.out.println("Sorted List ::");
+			display();
+		}
 	}
 
 }

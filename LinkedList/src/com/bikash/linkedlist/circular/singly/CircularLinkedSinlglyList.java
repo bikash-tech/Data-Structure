@@ -21,7 +21,7 @@ public class CircularLinkedSinlglyList {
 		CDNode node = new CDNode(value);
 		if (tail == null) {
 			tail = node;
-			// tail.setNextNode(node);
+			tail.setNextNode(node);
 		} else {
 			// set new node address = previous head node
 			node.setNextNode(tail.getNextNode());
@@ -120,9 +120,13 @@ public class CircularLinkedSinlglyList {
 		if (tail == null) {
 			System.out.println("Empty List");
 		} else {
-			CDNode head = tail.getNextNode();
-			tail.setNextNode(head.getNextNode());
-			head.setNextNode(null);
+			if(getSize() == 1) {
+				tail = null;
+			}else {
+				CDNode head = tail.getNextNode();
+				tail.setNextNode(head.getNextNode());
+				head.setNextNode(null);
+			}
 			size--;
 		}
 	}
@@ -173,8 +177,8 @@ public class CircularLinkedSinlglyList {
 	}
 
 	/**
-	 * Reverse singly circular LL 
-	 * 1. Take 3 pointer to achieve this. i.e previous,current and next
+	 * Reverse singly circular LL 1. Take 3 pointer to achieve this. i.e
+	 * previous,current and next
 	 */
 	public void reverseList() {
 		CDNode current = tail.getNextNode();
