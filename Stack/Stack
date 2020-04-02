@@ -1,0 +1,36 @@
+Stack
+----
+1. It is an container or ordered list or collection.
+2. LIFO(Last In First Out) or FILO(First In Last Out) order maintained.
+3. Common operations for Stack is :
+	- push() - Overflow condition need to check before inserting any data to stack. (.i.e isEmpty())
+	- pop() - remove the top data and display removed data. Underflow condition will check before removing data.
+	- isEmpty()
+	- isFull()
+	- peek() - without removing display the top data
+	- display()
+4. While implementing Stack using linked list. Always need to insert data from front of the list. 
+   So time complexity of O(n) will maintain.
+   	
+Application
+-----------
+1. Reverse a String.
+2. Undo mechanism for a text file.
+3. Recursion / Function Call.
+4. Infix to Prefix/ Postfix.
+5. DFS/ Tower of Hanoi / Tree traversal...etc.
+
+
+Infix to Prefix Conversion Rules
+--------------------------------
+1. Print operands as the arrive.
+2. If the stack is empty or contains a left parenthesis on top, push the remaining operator to the stack.
+3. If the incoming symbol is "(", push it onto the stack.
+4. If the incoming symbol is ")", pop from the stack and print the operators until "(" found.
+5. If the incoming symbol is higher precedence than the top of the stack, push it onto the stack.
+6. If the incoming symbol is lower precedence than the top of the stack, than pop and print the top. Than again
+   test the incoming operator against the new top of the stack.
+7. If the incoming symbol has equal precedence with the top of the stack, use Associativity Rule.
+		7.1 - Associativity L -> R than pop and print the top of the stack and than push the incoming operator.
+		7.2 - Associativity R -> L then push the incoming operator.
+
